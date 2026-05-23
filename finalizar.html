@@ -11,6 +11,12 @@
     <nav class="p-8 flex justify-between items-center border-b border-gray-100">
         <a href="index.html" class="text-xl font-black tracking-tighter uppercase">Urban Kickz</a>
         <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Checkout Seguro</span>
+        <button onclick="window.history.back();" class="group flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-900 text-[11px] font-bold uppercase tracking-wider text-white hover:bg-gray-400 hover:text-black transition-all duration-300 focus:outline-none shadow-sm border border-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-2.5 h-2.5 transition-transform duration-300 group-hover:-translate-x-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            <span>Regresar</span>
+        </button>
     </nav>
 
     <form id="checkoutForm" class="max-w-6xl mx-auto py-12 px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-3 gap-16">
@@ -54,7 +60,7 @@
                 <div class="space-y-4 mb-8">
                     <div class="flex justify-between text-sm font-bold uppercase">
                         <span>Subtotal</span>
-                        <span>$5,598</span>
+                        <span id="subtotal-display">$0</span>
                     </div>
                     <div class="flex justify-between text-sm font-bold uppercase">
                         <span>Envío</span>
@@ -64,7 +70,7 @@
 
                 <div class="border-t border-black pt-6 flex justify-between items-center mb-8">
                     <span class="text-lg font-black uppercase">Total</span>
-                    <span class="text-3xl font-black">$5,598</span>
+                    <span id="total-display" class="text-3xl font-black">$0</span>
                 </div>
 
                 <button type="submit" class="w-full bg-black text-white py-6 text-sm font-black uppercase tracking-widest hover:scale-[1.01] transition-transform shadow-xl">
@@ -82,12 +88,28 @@
     <center><button type="submit" class="rounded uppercase bg-black text-white shadow-2xl py-2 px-10 font-black">SALIR</button></center></a>
 
     <script>
-        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que la página se recargue
-            alert('¡Pedido exitoso! Gracias por confiar en Urban Kickz.');
-            // Aquí podrías redirigir a una página de gracias
-            // window.location.href = "gracias.html";
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Obtener el carrito de localStorage
+        const cart = JSON.parse(localStorage.getItem('urbanKickzCart')) || [];
+        
+        // 2. Calcular el total
+        const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+        
+        // 3. Actualizar los elementos en el HTML
+        const subtotalElement = document.getElementById('subtotal-display');
+        const totalElement = document.getElementById('total-display');
+        
+        if(subtotalElement && totalElement) {
+            subtotalElement.textContent = `$${total.toLocaleString()}`;
+            totalElement.textContent = `$${total.toLocaleString()}`;
+        }
+        
+        // Extra: Si el carrito está vacío, redirigir a inicio o carrito
+        if (cart.length === 0) {
+            alert("Tu carrito está vacío.");
+            window.location.href = "carrito.html";
+        }
+    });
+</script>
 </body>
 </html>
