@@ -7,15 +7,25 @@
     <link href="./dist/output.css" rel="stylesheet">
 </head>
 <body>
-     <header class="bg-white p-3.5 flex items-center justify-between shadow-sm">
-    <div>
-        <img src="Imagenes/Logo_navegacion (1).png" alt="Logo de Urban Kickz" class="h-11 w-11 object-contain">
+     <header class="bg-white py-2 px-6 flex items-center justify-between shadow-sm select-none">
+    <div class="flex flex-col items-center gap-1"> 
+        <a href="index.html" class="transition-transform duration-300 hover:scale-105">
+            <img src="Imagenes/Logo_navegacion (1).png" alt="Logo de Urban Kickz" class="h-10 w-10 object-contain">
+        </a>
+        <button onclick="window.history.back();" class="group flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-900 text-[11px] font-bold uppercase tracking-wider text-white hover:bg-gray-400 hover:text-black transition-all duration-300 focus:outline-none shadow-sm border border-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-2.5 h-2.5 transition-transform duration-300 group-hover:-translate-x-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            <span>Regresar</span>
+        </button>
     </div>
+    
     <nav>
-        <ul class="flex items-center gap-8 ">
-            <li><a href="comprar.html" class="text-sm font-semibold text-gray-900 hover:text-gray-600">Productos</a></li>
-            <li><a href="acera.html" class="text-sm font-semibold text-gray-900 hover:text-gray-600">Acerca de</a></li>
-            <li><a href="contact.html" class="text-sm font-semibold text-gray-900 hover:text-gray-600">Contáctanos</a></li>
+        <ul class="flex items-center gap-8">
+            <li><a href="comprar.html" class="text-base font-semibold text-gray-900 hover:text-black tracking-tight transition-colors">Productos</a></li>
+            <li><a href="acera.html" class="text-base font-semibold text-gray-900 hover:text-black tracking-tight transition-colors">Acerca de</a></li>
+            <li><a href="contact.html" class="text-base font-semibold text-gray-900 hover:text-black tracking-tight transition-colors">Contáctanos</a></li>
+            <li><a href="carrito.html" class="text-base font-semibold text-gray-900 hover:text-black tracking-tight transition-colors">Carrito</a></li>
         </ul>
     </nav>
 </header>
@@ -46,7 +56,8 @@
         
         <div class="group cursor-pointer">
             <div class="aspect-[4/5] flex justify-center items-center overflow-hidden bg-white mb-6">
-                <img src="imagenes_hombre/negro.png" alt="Traje Midnight Onyx" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                <a href="./producto_hombre/traje_onyx.html">
+                <img src="imagenes_hombre/negro.png" alt="Traje Midnight Onyx" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"></a>
             </div>
             <div class="flex justify-between items-center">
                 <h3 class="text-base font-bold text-black">
@@ -58,7 +69,8 @@
 
         <div class="group cursor-pointer">
             <div class="aspect-[4/5] flex justify-center items-center overflow-hidden bg-white mb-6">
-                <img src="imagenes_hombre/gris.png" alt="Traje Sterling Steel" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                <a href="../producto_hombre/traje_steel.html">
+                <img src="imagenes_hombre/gris.png" alt="Traje Sterling Steel" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"></a>
             </div>
             <div class="flex justify-between items-center">
                 <h3 class="text-base font-bold text-black">
@@ -70,7 +82,7 @@
 
         <div class="group cursor-pointer">
             <div class="aspect-[4/5] flex justify-center items-center overflow-hidden bg-white mb-6">
-                <img src="imagenes_hombre/azul.png" alt="Traje Deep Ocean" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                <a href="../producto_hombre/traje_deep.html"><img src="imagenes_hombre/azul.png" alt="Traje Deep Ocean" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"></a>
             </div>
             <div class="flex justify-between items-center">
                 <h3 class="text-base font-bold text-black">
@@ -82,7 +94,7 @@
 
         <div class="group cursor-pointer">
             <div class="aspect-[4/5] flex justify-center items-center overflow-hidden bg-white mb-6">
-                <img src="imagenes_hombre/verde.png" alt="Traje Forest Green" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                <a href="../producto_hombre/traje_green.html"><img src="imagenes_hombre/verde.png" alt="Traje Forest Green" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"></a>
             </div>
             <div class="flex justify-between items-center">
                 <h3 class="text-base font-bold text-black">
@@ -100,7 +112,7 @@
         
         <div class="group cursor-pointer">
             <div class="aspect-[4/5] flex justify-center items-center overflow-hidden bg-white mb-6">
-                <img src="imagenes_hombre/conjunto1.png" alt="Traje Midnight Onyx" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                <a href="../producto_hombre/dep_blanco.html"><img src="imagenes_hombre/conjunto1.png" alt="Traje Midnight Onyx" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"></a>
             </div>
             <div class="flex justify-between items-center">
                 <h3 class="text-base font-bold text-black">
@@ -112,7 +124,7 @@
 
         <div class="group cursor-pointer">
             <div class="aspect-[4/5] flex justify-center items-center overflow-hidden bg-white mb-6">
-                <img src="imagenes_hombre/conjunto2.png" alt="Traje Sterling Steel" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                <a href="../producto_hombre/dep_negro.html"><img src="imagenes_hombre/conjunto2.png" alt="Traje Sterling Steel" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"></a>
             </div>
             <div class="flex justify-between items-center">
                 <h3 class="text-base font-bold text-black">
@@ -124,25 +136,25 @@
 
         <div class="group cursor-pointer">
             <div class="aspect-[4/5] flex justify-center items-center overflow-hidden bg-white mb-6">
-                <img src="imagenes_hombre/short1.png" alt="Traje Deep Ocean" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                <a href="../producto_hombre/dep_short.html"><img src="imagenes_hombre/short1.png" alt="Traje Deep Ocean" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"></a>
             </div>
             <div class="flex justify-between items-center">
                 <h3 class="text-base font-bold text-black">
                     Conjunto Short y playera deportiva (3-PACK)
                 </h3>
-                <span class="text-sm text-gray-500">$3,499</span>
+                <span class="text-sm text-gray-500">$1,499</span>
             </div>
         </div>
 
         <div class="group cursor-pointer">
             <div class="aspect-[4/5] flex justify-center items-center overflow-hidden bg-white mb-6">
-                <img src="imagenes_hombre/short2.png" alt="Traje Forest Green" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                <a href="../producto_hombre/dep_short.html"><img src="imagenes_hombre/short2.png" alt="Traje Forest Green" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"></a>
             </div>
             <div class="flex justify-between items-center">
                 <h3 class="text-base font-bold text-black">
                     Conjunto Short y playera deportiva (3-PACK)
                 </h3>
-                <span class="text-sm text-gray-500">$3,499</span>
+                <span class="text-sm text-gray-500">$1,499</span>
             </div>
         </div>
         

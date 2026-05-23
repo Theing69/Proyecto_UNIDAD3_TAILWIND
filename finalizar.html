@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pedido | Urban Kickz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black antialiased">
+
+    <nav class="p-8 flex justify-between items-center border-b border-gray-100">
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase">Urban Kickz</a>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Checkout Seguro</span>
+    </nav>
+
+    <form id="checkoutForm" class="max-w-6xl mx-auto py-12 px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-3 gap-16">
+        
+        <div class="lg:col-span-2 space-y-12">
+            
+            <section>
+                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-gray-400 mb-8">Información de Envío</h2>
+                <div class="grid grid-cols-2 gap-6">
+                    <input type="text" name="nombre" placeholder="Nombre" required class="col-span-2 md:col-span-1 p-4 border-b-2 border-gray-200 focus:border-black invalid:focus:border-red-500 outline-none transition-colors text-sm font-bold uppercase">
+                    <input type="text" name="apellido" placeholder="Apellido" required class="col-span-2 md:col-span-1 p-4 border-b-2 border-gray-200 focus:border-black invalid:focus:border-red-500 outline-none transition-colors text-sm font-bold uppercase">
+                    
+                    <input type="email" name="email" placeholder="Correo Electrónico" required class="col-span-2 p-4 border-b-2 border-gray-200 focus:border-black invalid:focus:border-red-500 outline-none transition-colors text-sm font-bold uppercase">
+                    
+                    <input type="text" name="direccion" placeholder="Dirección completa" required class="col-span-2 p-4 border-b-2 border-gray-200 focus:border-black invalid:focus:border-red-500 outline-none transition-colors text-sm font-bold uppercase">
+                    <input type="text" name="ciudad" placeholder="Ciudad" required class="col-span-1 p-4 border-b-2 border-gray-200 focus:border-black invalid:focus:border-red-500 outline-none transition-colors text-sm font-bold uppercase">
+                    
+                    <input type="text" name="cp" placeholder="C.P. (5 dígitos)" required pattern="\d{5}" title="Debe contener 5 números" class="col-span-1 p-4 border-b-2 border-gray-200 focus:border-black invalid:focus:border-red-500 outline-none transition-colors text-sm font-bold uppercase">
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-gray-400 mb-8">Información de Pago</h2>
+                <div class="space-y-4">
+                    <label class="p-6 border border-black cursor-pointer hover:bg-gray-50 transition-colors flex items-center justify-between">
+                        <span class="font-black uppercase tracking-widest text-sm">Tarjeta de Crédito</span>
+                        <input type="radio" name="pago" value="tarjeta" checked class="h-4 w-4 accent-black">
+                    </label>
+                    <label class="p-6 border border-gray-200 cursor-pointer hover:border-black transition-colors flex items-center justify-between">
+                        <span class="font-black uppercase tracking-widest text-sm text-gray-400">PayPal</span>
+                        <input type="radio" name="pago" value="paypal" class="h-4 w-4 accent-black">
+                    </label>
+                </div>
+            </section>
+        </div>
+
+        <div class="lg:col-span-1">
+            <div class="bg-gray-50 p-8 sticky top-8">
+                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-gray-400 mb-8">Resumen de Orden</h2>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex justify-between text-sm font-bold uppercase">
+                        <span>Subtotal</span>
+                        <span>$5,598</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-bold uppercase">
+                        <span>Envío</span>
+                        <span class="text-green-600">Gratis</span>
+                    </div>
+                </div>
+
+                <div class="border-t border-black pt-6 flex justify-between items-center mb-8">
+                    <span class="text-lg font-black uppercase">Total</span>
+                    <span class="text-3xl font-black">$5,598</span>
+                </div>
+
+                <button type="submit" class="w-full bg-black text-white py-6 text-sm font-black uppercase tracking-widest hover:scale-[1.01] transition-transform shadow-xl">
+                    Confirmar Compra
+                </button>
+                
+                <p class="mt-6 text-[10px] text-gray-400 text-center leading-relaxed">
+                    Al confirmar, aceptas nuestros términos de servicio y política de privacidad.
+                </p>
+            </div>
+        </div>
+
+    </form>
+    <a href="index.html">
+    <center><button type="submit" class="rounded uppercase bg-black text-white shadow-2xl py-2 px-10 font-black">SALIR</button></center></a>
+
+    <script>
+        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que la página se recargue
+            alert('¡Pedido exitoso! Gracias por confiar en Urban Kickz.');
+            // Aquí podrías redirigir a una página de gracias
+            // window.location.href = "gracias.html";
+        });
+    </script>
+</body>
+</html>

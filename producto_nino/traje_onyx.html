@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/output.css">
+    <title>Document</title>
+</head>
+<body>
+ <header class="bg-white py-2 px-6 flex items-center justify-between shadow-sm select-none">
+    <div class="flex flex-col items-center gap-1"> 
+        <a href="index.html" class="transition-transform duration-300 hover:scale-105">
+            <img src="../Imagenes/Logo_navegacion (1).png" alt="Logo de Urban Kickz" class="h-10 w-10 object-contain">
+        </a>
+        <button onclick="window.history.back();" class="group flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-900 text-[11px] font-bold uppercase tracking-wider text-white hover:bg-gray-400 hover:text-black transition-all duration-300 focus:outline-none shadow-sm border border-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-2.5 h-2.5 transition-transform duration-300 group-hover:-translate-x-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            <span>Regresar</span>
+        </button>
+    </div>
+    
+    <nav>
+        <ul class="flex items-center gap-8">
+            <li><a href="comprar.html" class="text-base font-semibold text-gray-900 hover:text-black tracking-tight transition-colors">Productos</a></li>
+            <li><a href="acera.html" class="text-base font-semibold text-gray-900 hover:text-black tracking-tight transition-colors">Acerca de</a></li>
+            <li><a href="contact.html" class="text-base font-semibold text-gray-900 hover:text-black tracking-tight transition-colors">Contáctanos</a></li>
+            <li><a href="carrito.html" class="text-base font-semibold text-gray-900 hover:text-black tracking-tight transition-colors">Carrito</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <div class="space-y-4">
+    <div class="bg-[#f6f6f6] rounded-3xl overflow-hidden aspect-square flex items-center justify-center">
+        <img id="main-product-image" src="../imagenes_niño/dep3.png" alt="Jersey Blanco" class="w-full h-full object-cover transition-opacity duration-300">
+    </div>
+
+    <div class="grid grid-cols-4 gap-4">
+        <div onclick="changePerspective('../imagenes_niño/dep3.png', this)" 
+             class="thumb-btn bg-[#f6f6f6] aspect-square rounded-xl cursor-pointer hover:opacity-80 border-2 border-black transition-all">
+            <img src="../imagenes_niño/dep3.png" class="w-full h-full object-cover p-2">
+        </div>
+
+        
+    </div>
+</div>
+
+            <div class="flex flex-col">
+                <span class="text-orange-600 text-xs font-bold uppercase tracking-widest mb-2">Ocasiones especiales</span>
+                <h1 class="text-4xl font-black uppercase leading-tight mb-2">
+                    Conjunto short y playera deportiva futbol
+                </h1>
+                <p class="text-xl font-medium text-gray-900 mb-8">$3,499</p>
+
+                <div class="mb-10">
+             <div class="flex justify-between items-center mb-4">
+             <span class="text-sm font-bold uppercase tracking-wider">Seleccionar Talla</span>
+              <button class="text-xs text-gray-400 underline uppercase font-bold tracking-tighter">Guía de tallas</button>
+             </div>
+             <div id="size-container" class="grid grid-cols-3 gap-3">
+                <button data-size="S" class="opacity-40 cursor-not-allowed border border-gray-200 py-4 rounded-xl text-sm font-bold" disabled>XXS</button>
+                <button data-size="M" class="size-btn border border-gray-200 py-4 rounded-xl text-sm font-bold hover:border-black transition-all">XS</button>
+                <button data-size="L" class="size-btn border border-gray-200 py-4 rounded-xl text-sm font-bold hover:border-black transition-all">S</button>
+                
+         </div>
+            </div>
+
+                <div class="bg-gray-50 p-6 rounded-2xl mb-8">
+                    <p class="text-xs leading-relaxed text-gray-600">
+                        Desde <span class="font-bold text-black">$750/mes</span> con pagos sin intereses. 
+                        <a href="#" class="underline font-bold text-black">Ver disponibilidad de crédito.</a>
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <button onclick="addToCart()" class="w-full bg-black text-white py-6 rounded-full font-black uppercase tracking-[0.2em] hover:bg-gray-800 transition-all transform active:scale-95">
+                    Añadir a la bolsa
+                    </button>
+                    <button class="w-full border border-gray-200 text-black py-6 rounded-full font-black uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-all transform active:scale-95">
+                        Comprar ahora
+                    </button>
+                </div>
+
+                <div class="mt-12 border-t border-gray-100 pt-8">
+                    <h3 class="text-sm font-black uppercase tracking-widest mb-4">Descripción</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Tenis para el uso día a día,cómodos, duraderos y atemporales: por una razón son los número 1. La confección clásica de los años 80 se combina con detalles audaces de cuero suave para tener un estilo que deja huella en la cancha y en la calle. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+<script>
+    let selectedSize = null;
+
+    // 1. Lógica para seleccionar tallas
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    
+    sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Quitar clase activa de todos los botones
+            sizeButtons.forEach(b => {
+                b.classList.remove('bg-black', 'text-white', 'border-black');
+                b.classList.add('border-gray-200');
+            });
+
+            // Añadir clase activa al botón clicado
+            btn.classList.add('bg-black', 'text-white', 'border-black');
+            btn.classList.remove('border-gray-200');
+            
+            selectedSize = btn.getAttribute('data-size');
+            console.log("Talla seleccionada:", selectedSize);
+        });
+    });
+
+    // 2. Función para añadir al carrito
+    function addToCart() {
+        if (!selectedSize) {
+            alert("Por favor, selecciona una talla antes de añadir al carrito.");
+            return;
+        }
+
+        // Crear el objeto del producto
+        const product = {
+            id: 'jersey-mx-blanco',
+            name: "Conjunto short y playera deportiva futbol",
+            price: 3499,
+            size: selectedSize,
+            image: "../imagenes_niño/dep3.png",
+            quantity: 1
+        };
+
+        // Obtener carrito actual de localStorage o crear uno vacío
+        let cart = JSON.parse(localStorage.getItem('urbanKickzCart')) || [];
+
+        // Verificar si el mismo producto con la misma talla ya existe
+        const existingIndex = cart.findIndex(item => item.id === product.id && item.size === product.size);
+
+        if (existingIndex > -1) {
+            cart[existingIndex].quantity += 1;
+        } else {
+            cart.push(product);
+        }
+
+        // Guardar de nuevo en localStorage
+        localStorage.setItem('urbanKickzCart', JSON.stringify(cart));
+
+        // Feedback visual
+        alert(`¡Añadido! Jersey talla ${selectedSize} listo en tu bolsa.`);
+        
+        // Opcional: Redirigir al carrito
+        // window.location.href = "carrito.html";
+    }
+    function changePerspective(newSrc, element) {
+        const mainImage = document.getElementById('main-product-image');
+        
+        // 1. Efecto de desvanecimiento suave (opcional pero se ve pro)
+        mainImage.style.opacity = '0';
+        
+        setTimeout(() => {
+            // 2. Cambiar la fuente de la imagen
+            mainImage.src = newSrc;
+            mainImage.style.opacity = '1';
+        }, 150);
+
+        // 3. Actualizar el borde activo en las miniaturas
+        document.querySelectorAll('.thumb-btn').forEach(btn => {
+            btn.classList.remove('border-black');
+            btn.classList.add('border-transparent');
+        });
+        
+        element.classList.remove('border-transparent');
+        element.classList.add('border-black');
+    }
+</script>
+</body>
+</html>
